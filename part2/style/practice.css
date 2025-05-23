@@ -1,0 +1,49 @@
+
+div:not(.color_box), h1 {
+    padding: 10px;
+}
+
+h1 {
+    background-color: #ff4545;
+
+}
+
+.class_box {
+    background-color: #349eda;
+
+}
+
+#id_box {
+    background-color: #54c741;
+
+}
+
+.color_box {
+    background-color: #c53cc3;
+    height:100px;
+}
+
+.color_box a {
+    display:inline-block;
+    background-color: #e7d93f;
+    text-decoration:none;
+    color:black;
+    padding:5px;
+}
+
+#color_box {
+    list-style-type:none;
+    padding:0;
+    background-color: #1fb2cd;
+    height:150px;
+
+}
+
+#color_box li {
+    padding: 5px;
+}
+
+#color_box .bg {
+    background-color: #ff871c;
+}
+
