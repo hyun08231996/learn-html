@@ -1,0 +1,33 @@
+div {
+    width: 200px;
+    height: 200px;
+}
+
+.box01 {
+    background-color: red;
+
+    /* 컨텐츠가 1층에 있을때만 사용할 수 있음 (float, position absolute 등은 적용 안됨) */
+    /* margin: 0 auto;  */
+
+    /* margin: 0 30px; 과 동일, margin-inline 이 더 깔끔  */
+    margin-inline: 30px;
+
+    margin-block: 30px;
+}
+
+.box02 {
+    background-color: dodgerblue;
+    padding: 10px;
+}
+
+.box03 {
+    background-color: orange;
+    border: 10px solid red;
+    border-radius:50%;
+}
+
+.box04 {
+    box-sizing:border-box; /* width & height 크기를 200px x 200px 로 고정 */
+    background-color: greenyellow;
+    border: 5px solid black;
+}

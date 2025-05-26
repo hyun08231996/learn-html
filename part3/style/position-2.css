@@ -1,0 +1,56 @@
+
+body {
+    position:relative;
+}
+
+.white {
+    height: 1000px;
+}
+
+.gray {
+    height:1000px;
+    background-color: gray;
+}
+
+.green {
+    width:400px;
+    height:250px;
+    background-color: green;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* translate:-50% -50%; */
+    margin-left: -200px;
+    margin-top: -125px;
+    /* transform, filter, perspective, will-change, backdrop-filter : containing block을 새롭게 만들기 때문에 position fixed 가 원하는대로 안 움직임 */
+}
+
+.green > div {
+    background-color: black;
+}
+
+.green .box01 {
+    width:30px;
+    height:30px;
+    position: absolute;
+    left:0;
+    top:0;
+}
+
+.green .box02 {
+    width:30px;
+    height:30px;
+    position: absolute;
+    right:0;
+    top:0;
+    translate:100% -100%;
+}
+
+.green .box03 {
+    width:200px;
+    height:100px;
+    position: fixed;
+    left:50%;
+    top:50%;
+    translate: -50% -50%;
+}

@@ -1,0 +1,90 @@
+body {
+    height: 5000px;
+}
+
+.box01 {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    /* margin-top: 100px; */
+    /* 요소 찾기가 어려워서, 위험함! */
+    /* position: relative; */
+    /* margin: 0 auto; */
+    /* left: 800px;
+    top: 100px; */
+}
+
+.box02 {
+    width: 200px;
+    height: 200px;
+    background-color: dodgerblue;
+}
+
+.container {
+    width: 600px;
+    height: 600px;
+    background-color: hotpink;
+    position: relative;
+}
+
+.container > div {
+    width: 200px;
+    height: 200px;
+}
+
+.container .list01 {
+    background-color: green;
+    position: sticky;
+    left: 0;
+    top: 0;
+
+    z-index: 10;
+}
+
+.container .list02 {
+    background-color: orange;
+    position: absolute;
+    right: 0;
+    top: 0;
+
+    z-index:100;
+}
+
+.container .list03 {
+    background-color: dodgerblue;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+.container .list04 {
+    background-color: red;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+
+.container .list05 {
+    background-color: black;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    /* margin-left:-100px; */
+    /* margin-top:-100px; */
+    /* transform: translate(-50%, -50%); */
+    translate: -50% -50%;
+}
+
+.box03 {
+    width: 400px;
+    height: 200px;
+    background-color: #b38813;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    translate:-50% -50%;
+    /* transition: all 1s; */
+    /* transform: translateX(100%); */
+
+    z-index: 9999;
+}

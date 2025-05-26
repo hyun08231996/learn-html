@@ -1,6 +1,6 @@
 # HTML & CSS
 
-
+---
 
 ## ✅ Shortcuts
 
@@ -50,7 +50,7 @@
 - css selector 우선순위
     - 일반 태그 (예. `p`, `div`) : 1점
     - 클래스 (예. `.box`) 또는 속성 (예. `[name=”box”]`) : 10점
-    - 아이디 (예 `#box`) : 100점
+    - 아이디 (예. `#box`) : 100점
     - 점수 조합 :
         - 앞에 일반 태그를 붙이면 1점 플러스됨
             - 예. `p.box` 또는 `p[name=”box”]` : 11점
@@ -61,3 +61,102 @@
     - css 파일에서 selector에 hover 해보면 확인 가능
         
         ![image](./img/image.png)
+        
+    - 아이디 selector 또는 `!important` 는 가급적 지양하는 것이 좋음
+        - 지양 이유 : 우선순위 충돌, 디버깅 어려움, 프로젝트 관리 어려움, 스타일 변경 어려움
+- CSS Nesting
+    
+    ```css
+    .list {
+    
+        .box {
+            background-color: black;
+        }
+    
+        /* & 는 '나' 라는 뜻임 */
+        &:hover {
+    
+        }
+    
+        > li:nth-child(3) {
+            background-color: orange;
+        }
+    
+        > .menu {
+    
+        }
+    }
+    ```
+    
+    - nesting으로 작성 가능
+    - & : ampersand → ‘나’ 라는 뜻임 (`.list:hover` = `&:hover`)
+- `margin`
+    - 컨텐츠가 1층에 있을 때만 사용할 수 있음 (`float`, `position absolute` 등은 적용 안됨)
+    - `margin: 0 auto;` → 가로 기준 가운데 정렬
+    - `margin: 0 30px;` = `margin-inline: 30px;`
+    - `margin: 30px 0;` = `margin-block: 30px;`
+    - `margin-inline` 이 더 깔끔하고 더 많이 사용함
+    - `padding` 도 동일하게 `padding-inline` 과 `padding-block`이 있음
+- `box-sizing`
+    - 예를 들어, 박스의 `width:200px; height:200px;` 로 설정하고 `border-width:5px;` 인 경우, `border-width` 가 더해져서 `width:210px; height:210px;` 이 되어버림
+    - 이런 이슈를 방지하기 위해 `box-sizing:border-box;` 를 사용함
+        - `width` & `height` 크기를 200px x 200px 로 고정
+- `float`
+    - 새로로 배치된 블럭 요소를 가로로 배치 시키기 위해 사용함
+    - `float` 을 사용한 요소는 2층으로 올라감
+    - 문제점 : 부모에 `height`이 없는 경우, 화면에 표시되지 않음. `p` 요소를 새로 많들어서 `clear:both;` 로 해결 가능 → 번거로움
+    - 요즘은 잘 사용하지 않음, `flex`를 더 많이 활용함
+- `position`
+    - 구분
+        
+        
+        |  | `relative` | `absolute` | `fixed` |
+        | --- | --- | --- | --- |
+        | 층수 | 1층 | 2층 | 2층 |
+        | 기준점 | 자신 | 부모 | 브라우저 |
+        | 가운데 정렬 | margin: 0 auto | 공식 | 공식 |
+        | 사용 예시 | 기준점을 잡아주기 위해 | 독립적 요소 | 화면 고정 |
+        | 필수 입력값 | 없음 | ×축 1개 / y축 1개 | x축 1개 / y축 1개 |
+    - `position: relative` 로 위치를 조정하는 경우, 화면에서 요소를 찾기가 어려워서, 위험함 → `position: relative` 는 주로 `position: absolute`의 기준점을 잡아주기 위해 사용함
+    - `position: absolute` 가운데 정렬 공식:
+        
+        ```css
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        ```
+        
+    - `position: fixed`
+        - `transform`, `filter`, `perspective`, `will-change`, `backdrop-filter` : 이러한 속성들은 GPU로 작동하고 containing block을 새롭게 만들기 때문에, 이러한 속성이 부모 요소에 포함된 경우 `position fixed` 가 원하는대로 안 움직임
+            - `margin-left: -200px; margin-top: -125px;` → 이런식으로 `margin`을 활용하여 해결 가능
+    - `z-index`
+        - 어떤 요소가 위에 올라가는지를 설정하는 속성
+- `hover`
+    - `hover`는 부모에게 주는 것이 안전하다
+    - 예. `footer:hover > p` 가 `footer: > p:hover` 보다 더 안전
+- `flex`
+    - main 축과 sub 축이 있음
+    - `flex-direction:row` (default) → 가로가 main, 새로가 sub
+        - `justify-content` → 가로 정렬
+        - `align-items` → 새로 정렬
+    - `flex-direction:column` → 새로가 main, 가로가 sub
+        - `justify-content` → 새로 정렬
+        - `align-items` → 가로 정렬
+- reset.css
+    - [https://meyerweb.com/eric/tools/css/reset/](https://meyerweb.com/eric/tools/css/reset/)
+    - 브라우저마다 기본적으로 요소에 적용되는 CSS 스타일을 통일하여 웹 페이지 디자인의 일관성을 유지하고 레이아웃을 정확하게 제어하기 위한 기술
+
+## 네이밍 규칙:
+
+- `kebab-case` : `ease-in-out-bounce`
+    - 계층 관계를 나눠야 할 때
+- `snake_case` : `ease_in_out_bounce`
+    - 더블 클릭하면 한번에 다 선택됨
+    - css 네이밍, 파일명에 많이 사용함
+- `camelCase` : `easeInOutBounce`
+    - JS에서 가장 많이 사용함
+- `PascalCase` : `EaseInOutBounce`
+    - 앞에 대문자 + camelCase
+    - JS에서 많이 사용함 (특히 React)
+    - constructor(생성자)

@@ -1,0 +1,28 @@
+body {
+    display:flex;
+    justify-content: center;
+    align-items:center;
+    height: 100vh;
+}
+
+.container {
+    width: 600px;
+    height: 600px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 10px;
+    /* align-items: center; */
+    align-content:space-between;
+    flex-wrap:wrap;
+
+    > div {
+        width: 150px;
+        height: 150px;
+        background-color: dodgerblue;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+    }
+}

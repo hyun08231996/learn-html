@@ -1,0 +1,37 @@
+.list {
+    background-color: hotpink;
+}
+
+.list > li {
+    background-color: dodgerblue;
+}
+
+.list > .menu {
+    background-color: orange;
+}
+
+.list > li:nth-child(2n) {
+    background-color: greenyellow;
+}
+
+/* CSS nesting */
+
+.list {
+
+    .box {
+        background-color: black;
+    }
+
+    /* & 는 '나' 라는 뜻임 */
+    &:hover {
+
+    }
+
+    > li:nth-child(3) {
+        background-color: orange;
+    }
+
+    > .menu {
+
+    }
+}
